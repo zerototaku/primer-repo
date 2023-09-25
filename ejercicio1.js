@@ -42,13 +42,13 @@ junto con un texto para mostrar una vez que hayan
 pasado esos segundos en tiempo real.
  */
 
-   function getUser() {
+   /**function getUser() {
     console.log(`es tiempo`);
 }
 setTimeout(getUser,3000);
 
 
-function invertirCadena(cad) {
+/**function invertirCadena(cad) {
     let nuevaCadena = "";
     for (let i = cad.length - 1; i >= 0; i--) {
         nuevaCadena += cad[i];
@@ -69,3 +69,28 @@ invertirCadena('ana');
  Resuelve esto usando recursividad.
  * 
  */
+function factorial (n){
+    if(n===1|| n===0){
+        return 1;
+ } else{return n*factorial(n-1);         
+    }
+}
+factorial(0);
+
+
+function aplanar(datos,acumulador){
+    for(let i=0; i < datos.length; i++){
+        if(Array.isArray(datos[i])){
+            aplanar(datos[i],acumulador);
+        }else{
+            acumulador.push(datos[i]);
+        }
+    }
+
+}
+
+let numeros = [1, [2, 3, [4, 5, [6]]]];
+let resultado = [];
+
+aplanar(numeros,resultado);
+console.log(resultado);
